@@ -16,4 +16,4 @@ requests
 js2py
 lk21
 pybase64
-python-telegram-bot
+python-telegram-bot==20.0
