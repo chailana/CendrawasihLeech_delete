@@ -12,7 +12,7 @@ from sys import exit
 import urllib.request
 import dotenv
 import telegram.ext as tg
-
+from telegram import Bot
 from pyrogram import Client
 
 if os.path.exists("CendrawasihLeech.txt"):
@@ -138,7 +138,6 @@ try:
 except KeyError:
     RCLONE_CONF_URL = None
 
-
 def multi_rclone_init():
     if RCLONE_CONFIG:
         LOGGER.warning(
@@ -152,10 +151,12 @@ def multi_rclone_init():
                 fole.write(f.read())
         LOGGER.info("rclone.conf backuped to rclone_bak.conf!")
 
-
 multi_rclone_init()
-app = Client("CendrawasihLeech", bot_token=TG_BOT_TOKEN,
-             api_id=APP_ID, api_hash=API_HASH, workers=343)
-updater = tg.Updater(token=TG_BOT_TOKEN)
-bot = updater.bot
+
+# Initialize the Pyrogram client
+app = Client("CendrawasihLeech", bot_token=TG_BOT_TOKEN, api_id=APP_ID, api_hash=API_HASH, workers=343)
+
+# Initialize the Telegram bot updater
+bot = Bot(token=TG_BOT_TOKEN)
+updater = tg.Updater(bot=bot)
 dispatcher = updater.dispatcher
