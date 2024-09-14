@@ -36,10 +36,10 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 # Copy other necessary files
 COPY . .
 COPY extract /usr/local/bin
-COPY .netrc $HOME/.netrc
+COPY .netrc /root/.netrc
 
 # Set correct permissions for .netrc
-RUN chmod 600 $HOME/.netrc
+RUN chmod 600 /root/.netrc
 
 # Define the default command
 CMD ["bash", "start.sh"]
