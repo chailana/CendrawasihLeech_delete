@@ -23,9 +23,8 @@ RUN mkdir -p /CendrawasihLeech/Leech
 RUN wget -O /CendrawasihLeech/Leech/gclone.gz https://git.io/JJMSG && \
     gzip -d /CendrawasihLeech/Leech/gclone.gz
 
-# Attempt to download font (replace URL with valid one)
-# If the URL is invalid or file is not necessary, consider removing this line
-RUN wget -O /usr/share/fonts/Hack-Bold.ttf http://example.com/valid-font-url.ttf
+# Attempt to download font (commented out due to server issue)
+# RUN wget -O /usr/share/fonts/Hack-Bold.ttf http://example.com/valid-font-url.ttf
 
 # Set permissions for gclone
 RUN chmod 0775 /CendrawasihLeech/Leech/gclone
